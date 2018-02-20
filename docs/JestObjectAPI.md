@@ -49,8 +49,41 @@ will be cleared and will never have the opportunity to execute in the future.
 
 Disables automatic mocking in the module loader.
 
+> See `automock` section of [configuration](Configuration.md)
+
 After this method is called, all `require()`s will return the real versions of
 each module (rather than a mocked version).
+
+Jest configuration:
+
+```json
+"automocking": true
+```
+
+Example:
+
+```js
+// utils.js
+export default {
+  authorize: args => {
+    // implementation
+    return 'some_valid_token';
+  },
+};
+
+// __tests__/disableAutomocking.js
+
+// disabling automocking for next imports
+jest.disableAutomock();
+
+import utils from '../utils';
+
+test('original implementation', () => {
+  // now we have the original implementation,
+  // even if we set the automocking in a jest configuration
+  expect(utils.authorize()).toBe('some_valid_token');
+});
+```
 
 This is usually useful when you have a scenario where the number of dependencies
 you want to mock is far less than the number of dependencies that you don't. For

@@ -1,7 +1,21 @@
 ## master
 
+### Features
+
+* `[jest-runtime]` Provide `require.main` property set to module with test suite
+  ([#5618](https://github.com/facebook/jest/pull/5618))
+* `[docs]` Add note about Node version support ([#5622](https://github.com/facebook/jest/pull/5622))
+
+## 22.4.0
+
 ### Fixes
 
+* `[jest-haste-map]` Overhauls how Watchman crawler works fixing Windows
+  ([#5615](https://github.com/facebook/jest/pull/5615))
+* `[expect]` Allow matching of Errors against plain objects
+  ([#5611](https://github.com/facebook/jest/pull/5611))
+* `[jest-haste-map]` Do not read binary files in Haste, even when instructed to
+  do so ([#5612](https://github.com/facebook/jest/pull/5612))
 * `[jest-cli]` Don't skip matchers for exact files
   ([#5582](https://github.com/facebook/jest/pull/5582))
 * `[docs]` Update discord links
@@ -11,6 +25,8 @@
   ([#5560](https://github.com/facebook/jest/pull/5560))
 * `[jest-config]` Make it possible to merge `transform` option with preset
   ([#5505](https://github.com/facebook/jest/pull/5505))
+* `[jest-util]` Fix `console.assert` behavior in custom & buffered consoles
+  ([#5576](https://github.com/facebook/jest/pull/5576))
 
 ### Features
 
@@ -22,6 +38,8 @@
   from source. ([#5177](https://github.com/facebook/jest/pull/5177))
 * `[jest-validate]` Add ability to log deprecation warnings for CLI flags.
   ([#5536](https://github.com/facebook/jest/pull/5536))
+* `[jest-serializer]` Added new module for serializing. Works using V8 or JSON
+  ([#5609](https://github.com/facebook/jest/pull/5609))
 * `[docs]` Add a documentation note for project `displayName` configuration
   ([#5600](https://github.com/facebook/jest/pull/5600))
 
