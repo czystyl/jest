@@ -32,6 +32,16 @@ import yargs from 'yargs';
 import rimraf from 'rimraf';
 import {sync as realpath} from 'realpath-native';
 
+function handleKill() {
+  console.log(global, '|_Caught interrupt signal_|\n\n\n\n\n', process.env);
+
+  process.abort();
+}
+
+process.on('SIGINT', handleKill);
+process.on('SIGTERM', handleKill);
+process.on('SIGQUIT', handleKill);
+
 export async function run(maybeArgv?: Argv, project?: Path) {
   try {
     const argv: Argv = buildArgv(maybeArgv, project);

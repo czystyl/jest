@@ -3,25 +3,34 @@
 export default {
   afterAllPromise: () => {
     return new Promise(resolve => {
+      console.log('after_start');
+
       setTimeout(() => {
         console.log('__AFTER__ALL__DONE__');
         resolve({completed: true});
-      }, 500);
+      }, 1500);
     });
   },
+
   beforeAllPromise: () => {
     return new Promise(resolve => {
+      console.log('before_start');
+
       setTimeout(() => {
         console.log('__BEFORE__ALL__DONE__');
         resolve({completed: true});
-      }, 3500);
+      }, 1000);
     });
   },
+
   fakePromise: () => {
-    return new Promise((res, rej) => {
+    return new Promise(resolve => {
+      console.log('promise_start');
+
       setTimeout(() => {
-        res({what: 'rejected'});
-      }, 4000);
+        console.log('promise_resolve');
+        resolve({what: 'res'});
+      }, 2500);
     });
   },
 };

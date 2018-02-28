@@ -13,7 +13,15 @@ describe('life cycle', () => {
     return utils.afterAllPromise();
   });
 
-  test('if utils are mocked', () => {
-    return utils.fakeRandomPromise();
+  test('first', () => {
+    return utils.fakePromise().then(res => {
+      expect(res).toEqual({what: 'res'});
+    });
+  });
+
+  test('second', () => {
+    return utils.fakePromise().then(res => {
+      expect(res).toExist();
+    });
   });
 });
